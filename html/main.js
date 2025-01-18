@@ -116,20 +116,24 @@ const getCheckin = () => {
     if (localCheckin) {
         return new Uint8Array(JSON.parse(localCheckin));
     }
-    return new Uint8Array(1280);
+    // We support 10240 stations at most now, but it's extensible
+    return new Uint8Array(1285);
 }
 const saveCheckin = (checkin) => {
     localStorage.setItem("checkin", JSON.stringify(Array.from(checkin)));
 }
 window.handleClick = (checkbox) => {
-    console.log(checkbox);
     const id = Number(checkbox.id);
-    console.log(id);
     const checkin = getCheckin();
     // Get mod 8
     const mod = id % 8;
     // Get div 8
     const div = Math.floor(id / 8);
+    // Extend the array if necessary
+    while (checkin.length < div) {
+        console.log("Extending checkin array to ", checkin.length + 1);
+        checkin.push(0);
+    }
     if (checkbox.checked) {
         checkin[div] |= (1 << mod);
     } else {
