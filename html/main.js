@@ -58,7 +58,7 @@ const 是社交媒体 = /weibo|qq/i.test(navigator.userAgent);
 
 const $ = (名,元素 = 文档) => 元素.querySelector(名);
 
-const score = $('#score');
+const showScore = $('#score');
 
 const 字体名 = '字体';
 const 背景色 = '#efb4b4';
@@ -94,7 +94,7 @@ const 全关闭 = _=>{
 };
 const 数据 = {};
 const 获取所有省元素们 = _=>[ ...地区[子元素] ];
-const 获取所有省等级们 = _=>获取所有省元素们().map(元素 => 元素[获取属性](等级) || 零);
+const 获取所有省等级们 = _=>获取所有省元素们().map(元素 => new Number(元素[获取属性](等级)) || 零);
 const 获取所有省等级们字符串 = _=> 获取所有省等级们().join(空字);
 const 保存等级们 = _=>{
     本地存储.setItem(本地存储等级们钥匙,获取所有省等级们字符串());
@@ -105,11 +105,24 @@ const 获取等级们并生效 = _=>{
         元素[设置属性](等级,等级们字串[下标] || 零)
     });
 };
-function generateElementToHandleEki(x) {
-    return `<div style="flex: 1;">
-        <input type="checkbox" id="${x.id}" name="${x.prefecture} ${x.name}" onclick="handleClick(this);" />
-        <label for="scales">${x.name}</label>
-    </div>`;
+function getBit(checkin, id) {
+    // Get mod 8
+    const mod = id % 8;
+    // Get div 8
+    const div = Math.floor(id / 8);
+
+    return (checkin[div] & (1 << mod)) > 0;
+}
+function generateElementToHandleEki(eleId, countyId) {
+    const checkin = getCheckin();
+    return function(x) {
+        const checked = getBit(checkin, x.id);
+
+        return `<div style="flex: 1;">
+            <input type="checkbox" id="${x.id}" name="${x.prefecture} ${x.name}" onclick="handleClick(this, '${eleId}', '${countyId}');" ${checked ? "checked" : ""}/>
+            <label for="scales">${x.name}</label>
+        </div>`;
+    };
 }
 const getCheckin = () => {
     const localCheckin = localStorage.getItem("checkin");
@@ -122,7 +135,7 @@ const getCheckin = () => {
 const saveCheckin = (checkin) => {
     localStorage.setItem("checkin", JSON.stringify(Array.from(checkin)));
 }
-window.handleClick = (checkbox) => {
+window.handleClick = (checkbox, eleId, countyId) => {
     const id = Number(checkbox.id);
     const checkin = getCheckin();
     // Get mod 8
@@ -137,9 +150,38 @@ window.handleClick = (checkbox) => {
     if (checkbox.checked) {
         checkin[div] |= (1 << mod);
     } else {
-        checkin[div] &= (0 << mod);
+        checkin[div] &= ~(1 << mod);
     }
     saveCheckin(checkin);
+
+    const ekis = jr_eki_data[countyId];
+    const checked = ekis.map(x => {
+        return getBit(checkin, new Number(x.id)) ? 1 : 0;
+    }).reduce((a, b) => a + b, 0);
+    const total = ekis.length;
+    // console.log("Checked ", checked, " out of ", total);
+    if (total > 0) {
+        const percentage = Math.floor(100 * checked / total);
+        let level = 0;
+        if (percentage > 0 && percentage < 25 || checked > 0 && percentage === 0) {
+            level = 1;
+        } else if (percentage >= 25 && percentage < 50) {
+            level = 2;
+        } else if (percentage >= 50 && percentage < 75) {
+            level = 3;
+        } else if (percentage >= 75 && percentage < 100) {
+            level = 4;
+        } else if (percentage === 100) {
+            level = 5;
+        }
+        获取所有省元素们().forEach((element, index)=>{
+            if (element.id === eleId) {
+                element[设置属性](等级, level);
+            }
+        });
+        计分();
+        保存等级们();
+    }
 }
 添加事件监控(地区, 点击, 事件=>{
     事件[停止冒泡]();
@@ -159,13 +201,19 @@ window.handleClick = (checkbox) => {
         const countyId = 省元素.id;
         if (jr_eki_data.hasOwnProperty(countyId + "県")) {
             // 43 ken
-            $("#checkin").innerHTML = jr_eki_data[countyId + "県"].map(generateElementToHandleEki).join(" ");
+            $("#checkin").innerHTML = jr_eki_data[countyId + "県"].map(
+                generateElementToHandleEki(countyId, countyId + "県")
+            ).join(" ");
         } else if (jr_eki_data.hasOwnProperty(countyId + "府")) {
             // 2 fu
-            $("#checkin").innerHTML = jr_eki_data[countyId + "府"].map(generateElementToHandleEki).join(" ");
+            $("#checkin").innerHTML = jr_eki_data[countyId + "府"].map(
+                generateElementToHandleEki(countyId, countyId)
+            ).join(" ");
         } else if (countyId.endsWith("道")) {
             // 1 dou
-            $("#checkin").innerHTML = jr_eki_data[countyId].map(generateElementToHandleEki).join(" ");
+            $("#checkin").innerHTML = jr_eki_data[countyId].map(
+                generateElementToHandleEki(countyId, countyId)
+            ).join(" ");
         } else {
             // 23 ku, 26 shi, etc
             // TODO: Generate for tokyo-ku, etc
@@ -183,7 +231,7 @@ const 计分 = _=>{
     const score = 获取所有省等级们().reduce((全, 当前) => {
         return 全 + (+当前 || 零);
       }, 零);
-    score[肉] = `${score}`;
+    showScore[肉] = `${score}`;
 }
 添加事件监控(设置等级,点击,事件=>{
     事件[停止冒泡]();
