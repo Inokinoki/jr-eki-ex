@@ -183,6 +183,66 @@ window.handleClick = (checkbox, eleId, countyId) => {
         保存等级们();
     }
 }
+function generateElementToHandleEkiTokyo(countyId) {
+    const checkin = getCheckin();
+    return function(x) {
+        const checked = getBit(checkin, x.id);
+
+        return `<div style="flex: 1;">
+            <input type="checkbox" id="${x.id}" name="${x.prefecture} ${x.name}" onclick="handleClickTokyo(this, '${countyId}');" ${checked ? "checked" : ""}/>
+            <label for="scales">${x.name}</label>
+        </div>`;
+    };
+}
+window.handleClickTokyo = (checkbox) => {
+    const id = Number(checkbox.id);
+    const checkin = getCheckin();
+    // Get mod 8
+    const mod = id % 8;
+    // Get div 8
+    const div = Math.floor(id / 8);
+    // Extend the array if necessary
+    while (checkin.length < div) {
+        console.log("Extending checkin array to ", checkin.length + 1);
+        checkin.push(0);
+    }
+    if (checkbox.checked) {
+        checkin[div] |= (1 << mod);
+    } else {
+        checkin[div] &= ~(1 << mod);
+    }
+    saveCheckin(checkin);
+
+    const remaing = Object.keys(jr_eki_data).filter(x => x.endsWith("区") || x.endsWith("市") || x.endsWith("都"));
+    const ekis = remaing.reduce((a, b) => a.concat(jr_eki_data[b]), []);
+    const checked = ekis.map(x => {
+        return getBit(checkin, new Number(x.id)) ? 1 : 0;
+    }).reduce((a, b) => a + b, 0);
+    const total = ekis.length;
+    // console.log("Checked ", checked, " out of ", total);
+    if (total > 0) {
+        const percentage = Math.floor(100 * checked / total);
+        let level = 0;
+        if (percentage > 0 && percentage < 25 || checked > 0 && percentage === 0) {
+            level = 1;
+        } else if (percentage >= 25 && percentage < 50) {
+            level = 2;
+        } else if (percentage >= 50 && percentage < 75) {
+            level = 3;
+        } else if (percentage >= 75 && percentage < 100) {
+            level = 4;
+        } else if (percentage === 100) {
+            level = 5;
+        }
+        获取所有省元素们().forEach((element, index)=>{
+            if (element.id === '東京') {
+                element[设置属性](等级, level);
+            }
+        });
+        计分();
+        保存等级们();
+    }
+}
 添加事件监控(地区, 点击, 事件=>{
     事件[停止冒泡]();
 
@@ -217,7 +277,10 @@ window.handleClick = (checkbox, eleId, countyId) => {
         } else {
             // 23 ku, 26 shi, etc
             // TODO: Generate for tokyo-ku, etc
-            $("#checkin").innerHTML = "Not supported";
+            const remaining = Object.keys(jr_eki_data).filter(x => x.endsWith("区") || x.endsWith("市") || x.endsWith("都"));
+            $("#checkin").innerHTML = remaining.map(x => {
+                return "<div><h2>" + x + "</h2>" + (jr_eki_data[x].map(generateElementToHandleEkiTokyo(x)).join(" ")) + "</div>";
+            }).join(" ");
         }
     }
 
