@@ -107,9 +107,35 @@ const 获取等级们并生效 = _=>{
 };
 function generateElementToHandleEki(x) {
     return `<div style="flex: 1;">
-        <input type="checkbox" id="eki-${x.id}" name="${x.prefecture} ${x.name}" />
+        <input type="checkbox" id="${x.id}" name="${x.prefecture} ${x.name}" onclick="handleClick(this);" />
         <label for="scales">${x.name}</label>
     </div>`;
+}
+const getCheckin = () => {
+    const localCheckin = localStorage.getItem("checkin");
+    if (localCheckin) {
+        return new Uint8Array(JSON.parse(localCheckin));
+    }
+    return new Uint8Array(1280);
+}
+const saveCheckin = (checkin) => {
+    localStorage.setItem("checkin", JSON.stringify(Array.from(checkin)));
+}
+window.handleClick = (checkbox) => {
+    console.log(checkbox);
+    const id = Number(checkbox.id);
+    console.log(id);
+    const checkin = getCheckin();
+    // Get mod 8
+    const mod = id % 8;
+    // Get div 8
+    const div = Math.floor(id / 8);
+    if (checkbox.checked) {
+        checkin[div] |= (1 << mod);
+    } else {
+        checkin[div] &= (0 << mod);
+    }
+    saveCheckin(checkin);
 }
 添加事件监控(地区, 点击, 事件=>{
     事件[停止冒泡]();
@@ -144,9 +170,9 @@ function generateElementToHandleEki(x) {
     }
 
     // TODO: Set color accordingly
-    const att = document.createAttribute("data-level");
-    att.value = "5";
-    设置等级标题.setAttributeNode(att);
+    // const att = document.createAttribute("data-level");
+    // att.value = "5";
+    // 设置等级标题.setAttributeNode(att);
 });
 添加事件监控(文档,点击,全关闭);
 const 计分 = _=>{
