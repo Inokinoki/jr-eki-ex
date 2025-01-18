@@ -1,7 +1,29 @@
 <svg version="1.1" id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="318 -317.5 1147.5 1147.5" style="enable-background:new 318 -317.5 1147.5 1147.5;" xml:space="preserve">
-<!-- <g id="background">
+<g id="background">
 	<rect x="318" y="-317.5" fill="#9dc3fb" width="1147.5" height="1147.5"></rect>
-</g> -->
+</g>
+<style>
+#area rect{
+    fill:#FFF;
+    cursor: pointer;
+    pointer-events: auto;
+}
+#area polygon{
+    fill:#FFF;
+    cursor: pointer;
+    pointer-events: auto;
+}
+#area polygon[level="5"]{fill:#e84c3d;}
+#area polygon[level="4"]{fill:#d58337;}
+#area polygon[level="3"]{fill:#f3c218;}
+#area polygon[level="2"]{fill:#30cc70;}
+#area polygon[level="1"]{fill:#3598db;}
+#area rect[level="5"]{fill:#e84c3d;}
+#area rect[level="4"]{fill:#d58337;}
+#area rect[level="3"]{fill:#f3c218;}
+#area rect[level="2"]{fill:#30cc70;}
+#area rect[level="1"]{fill:#3598db;}
+</style>
 <g id="area">
 	<polygon id="富山" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="1051.6,276.5 1051.6,360.4 967.6,360.4 967.6,324.4 1000.9,324.4 	"></polygon>
 	<rect id="神奈川" x="1143.6" y="458.4" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" width="82" height="51"></rect>
@@ -19,9 +41,9 @@
 	<polygon id="愛知" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="1045.6,488.4 1045.6,547.4 971.6,547.4 971.6,517.4 955.6,517.4 955.6,488.4 	"></polygon>
 	<polygon id="三重" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="955.6,488.4 955.6,517.4 942.6,517.4 942.6,616.4 903.6,616.4 903.6,488.4 	"></polygon>
 	<g id="兵庫">
-	<rect x="730.6" y="399.4" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" width="69" height="110"></rect>
-		<rect x="782.6" y="519.4" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" width="22" height="21"></rect>
-</g>
+		<rect id="兵庫" x="730.6" y="399.4" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" width="69" height="110"></rect>
+		<rect id="兵庫" x="782.6" y="519.4" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" width="22" height="21"></rect>
+	</g>
 	<polygon id="石川" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="967.6,291.4 967.6,373.4 882.6,373.4 882.6,368.4 926.6,339.6 926.6,291.4 	"></polygon>
 	<rect id="山梨" x="1094.6" y="418.4" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" width="49" height="70"></rect>
 	<g id="大阪">
@@ -55,8 +77,8 @@
 	<polygon id="岐阜" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="1024.6,360.4 1024.6,488.4 955.6,488.4 955.6,424.4 967.6,424.4 967.6,360.4 	"></polygon>
 	<rect id="福島" x="1157.6" y="245.4" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" width="139" height="66"></rect>
 	<g id="新潟">
-		<polygon class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="1157.6,210.4 1157.6,311.4 1051.6,311.4 1051.6,276.5 1148.5,210.4 		"></polygon>
-		<polygon class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="1071.5,221.4 1044.5,241.4 1025,241.4 1051.8,221.4 		"></polygon>
+		<polygon class="st1" id="新潟" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="1157.6,210.4 1157.6,311.4 1051.6,311.4 1051.6,276.5 1148.5,210.4 		"></polygon>
+		<polygon class="st1" id="新潟" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="1071.5,221.4 1044.5,241.4 1025,241.4 1051.8,221.4 		"></polygon>
 	</g>
 	<rect id="宮城" x="1222.6" y="157.4" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" width="74" height="88"></rect>
 	<polygon id="山形" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="1222.6,157.4 1222.6,245.4 1157.6,245.4 1157.6,210.4 1148.5,210.4 1143.6,204.9
