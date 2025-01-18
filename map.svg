@@ -1,7 +1,7 @@
 <svg version="1.1" id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="318 -317.5 1147.5 1147.5" style="enable-background:new 318 -317.5 1147.5 1147.5;" xml:space="preserve">
-<g id="background">
+<!-- <g id="background">
 	<rect x="318" y="-317.5" fill="#9dc3fb" width="1147.5" height="1147.5"></rect>
-</g>
+</g> -->
 <g id="area">
 	<polygon id="富山" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="1051.6,276.5 1051.6,360.4 967.6,360.4 967.6,324.4 1000.9,324.4 	"></polygon>
 	<rect id="神奈川" x="1143.6" y="458.4" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" width="82" height="51"></rect>
@@ -1222,12 +1222,12 @@
 	<path fill="rgba(255,255,255,0.9)" stroke="#111" stroke-width="2" stroke-miterlimit="10" d="M848.4,231.7H427c-9,0-16.3-7.3-16.3-16.3v-315.8c0-9,7.3-16.3,16.3-16.3h421.4c9,0,16.3,7.3,16.3,16.3v315.8
 		C864.6,224.5,857.4,231.7,848.4,231.7z"></path>
 	<g>
-		<text transform="matrix(1 0 0 1 505.623 -63.0057)" class="st3" font-family="Ubuntu, YuGothic, Meiryo, sans-serif" font-size="23">100% 车站</text>
-		<text transform="matrix(1 0 0 1 505.623 -10.4796)" class="st3" font-family="Ubuntu, YuGothic, Meiryo, sans-serif" font-size="23">75%-100% 车站</text>
-		<text transform="matrix(1 0 0 1 505.623 42.0462)" class="st3" font-family="Ubuntu, YuGothic, Meiryo, sans-serif" font-size="23">50%-75% 车站</text>
-		<text transform="matrix(1 0 0 1 506.623 94.5719)" class="st3" font-family="Ubuntu, YuGothic, Meiryo, sans-serif" font-size="23">25%-50% 车站</text>
-		<text transform="matrix(1 0 0 1 505.623 147.0978)" class="st3" font-family="Ubuntu, YuGothic, Meiryo, sans-serif" font-size="23">0-25% 车站</text>
-		<text transform="matrix(1 0 0 1 505.623 199.6238)" class="st3" font-family="Ubuntu, YuGothic, Meiryo, sans-serif" font-size="23">0% 车站</text>
+		<text transform="matrix(1 0 0 1 505.623 -63.0057)" class="st3" font-family="Ubuntu, YuGothic, Meiryo, sans-serif" font-size="23">100% 駅</text>
+		<text transform="matrix(1 0 0 1 505.623 -10.4796)" class="st3" font-family="Ubuntu, YuGothic, Meiryo, sans-serif" font-size="23">75%-100% 駅</text>
+		<text transform="matrix(1 0 0 1 505.623 42.0462)" class="st3" font-family="Ubuntu, YuGothic, Meiryo, sans-serif" font-size="23">50%-75% 駅</text>
+		<text transform="matrix(1 0 0 1 506.623 94.5719)" class="st3" font-family="Ubuntu, YuGothic, Meiryo, sans-serif" font-size="23">25%-50% 駅</text>
+		<text transform="matrix(1 0 0 1 505.623 147.0978)" class="st3" font-family="Ubuntu, YuGothic, Meiryo, sans-serif" font-size="23">0-25% 駅</text>
+		<text transform="matrix(1 0 0 1 505.623 199.6238)" class="st3" font-family="Ubuntu, YuGothic, Meiryo, sans-serif" font-size="23">0% 駅</text>
 		<text transform="matrix(1 0 0 1 833.9932 -63.0057)" class="st3" font-family="Ubuntu, YuGothic, Meiryo, sans-serif" font-size="23" text-anchor="end">等級：5</text>
 		<text transform="matrix(1 0 0 1 833.9932 -10.4796)" class="st3" font-family="Ubuntu, YuGothic, Meiryo, sans-serif" font-size="23" text-anchor="end">等級：4</text>
 		<text transform="matrix(1 0 0 1 833.9932 42.0462)" class="st3" font-family="Ubuntu, YuGothic, Meiryo, sans-serif" font-size="23" text-anchor="end">等級：3</text>
@@ -1241,8 +1241,8 @@
 	<rect x="438.6" y="72.1" class="st1 green" width="49.2" height="26.3" fill="#30cc70"></rect>
 	<rect x="438.6" y="124.5" class="st1 blue" width="49.2" height="26.3" fill="#3598db"></rect>
 	<rect x="438.6" y="177" class="st1 white" width="49.2" height="26.3" stroke="#000000" stroke-width="2" fill="#ffffff"></rect>
-	<text transform="matrix(1 0 0 1 780.6933 -175.2419)" class="st4" font-family="YuGothic, Meiryo, sans-serif" font-size="76" font-weight="600" text-anchor="end">JR 制縣等級</text>
-	<text transform="matrix(1 0 0 1 800.8933 -175.2417)" class="st4" font-family="YuGothic, Meiryo, sans-serif" font-size="76" font-weight="600" id="level">0</text>
+	<text transform="matrix(1 0 0 1 780.6933 -175.2419)" class="st4" font-family="YuGothic, Meiryo, sans-serif" font-size="76" font-weight="600" text-anchor="end">JR 駅制縣等級</text>
+	<text transform="matrix(1 0 0 1 800.8933 -175.2417)" class="st4" font-family="YuGothic, Meiryo, sans-serif" font-size="76" font-weight="600" id="score">0</text>
 	<text transform="matrix(1 0 0 1 1315.693  745.2419)" class="st4" font-family="YuGothic, Meiryo, sans-serif" font-size="32" font-weight="600" id="author" text-anchor="end"></text>
 </g>
 </svg>
