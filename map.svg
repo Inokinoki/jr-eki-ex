@@ -47,7 +47,7 @@
 	<polygon id="石川" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="967.6,291.4 967.6,373.4 882.6,373.4 882.6,368.4 926.6,339.6 926.6,291.4 	"></polygon>
 	<rect id="山梨" x="1094.6" y="418.4" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" width="49" height="70"></rect>
 	<g id="大阪">
-		<polygon class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="859.6,488.4 859.6,552.4 818.6,552.4 818.6,509.4 799.6,509.4 799.6,488.4 		"></polygon>
+		<polygon id="大阪" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="859.6,488.4 859.6,552.4 818.6,552.4 818.6,509.4 799.6,509.4 799.6,488.4 		"></polygon>
 	</g>
 	<polygon id="愛媛" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="680.6,563.4 680.6,613.4 565.8,613.4 563.4,567.5 638.6,536.2 638.6,563.4 	"></polygon>
 	<polygon id="高知" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="770.6,627.5 770.6,662.4 730.6,662.4 711.1,641.4 667.5,641.4 646.9,662.4

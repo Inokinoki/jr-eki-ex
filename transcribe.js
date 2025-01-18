@@ -38,6 +38,10 @@ const replaceVersion = text => text.replace(/\{version\}/g,ver);
 
 const { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync } = require('fs');
 
+const replaceData = text => {
+    const data = require('../station-to-prefecture/data/jp.json');
+    return text.replace("undefined", JSON.stringify(data));
+}
 
 
 const Less = require('less');
@@ -91,6 +95,7 @@ const reader = async _=>{
     let jsText = readFileSync('html/main.js','utf8');
 
     jsText = replaceVersion(jsText);
+    jsText = replaceData(jsText);
     jsText = jsText.replace(/<!--.+?-->/g,'');
     jsText = jsText.replace(/^\s{0,}\/\/.+/g,'');
     jsText = `(_=>{${jsText}})()`;

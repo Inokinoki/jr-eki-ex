@@ -105,6 +105,12 @@ const 获取等级们并生效 = _=>{
         元素[设置属性](等级,等级们字串[下标] || 零)
     });
 };
+function generateElementToHandleEki(x) {
+    return `<div style="flex: 1;">
+        <input type="checkbox" id="eki-${x.id}" name="${x.prefecture} ${x.name}" />
+        <label for="scales">${x.name}</label>
+    </div>`;
+}
 添加事件监控(地区, 点击, 事件=>{
     事件[停止冒泡]();
 
@@ -118,6 +124,24 @@ const 获取等级们并生效 = _=>{
     设置等级样式["top"] = `100px`;
     设置等级样式["right"] = `50px`;
     设置等级样式["bottom"] = `100px`;
+
+    if (jr_eki_data) {
+        const countyId = 省元素.id;
+        if (jr_eki_data.hasOwnProperty(countyId + "県")) {
+            // 43 ken
+            $("#checkin").innerHTML = jr_eki_data[countyId + "県"].map(generateElementToHandleEki).join(" ");
+        } else if (jr_eki_data.hasOwnProperty(countyId + "府")) {
+            // 2 fu
+            $("#checkin").innerHTML = jr_eki_data[countyId + "府"].map(generateElementToHandleEki).join(" ");
+        } else if (countyId.endsWith("道")) {
+            // 1 dou
+            $("#checkin").innerHTML = jr_eki_data[countyId].map(generateElementToHandleEki).join(" ");
+        } else {
+            // 23 ku, 26 shi, etc
+            // TODO: Generate for tokyo-ku, etc
+            $("#checkin").innerHTML = "Not supported";
+        }
+    }
 
     // TODO: Set color accordingly
     const att = document.createAttribute("data-level");
@@ -222,3 +246,5 @@ const 保存图像 = _=>{
 添加事件监控($(啊,输出),点击,_=>{
     输出样式[展示] = 无
 });
+
+const jr_eki_data = undefined;
