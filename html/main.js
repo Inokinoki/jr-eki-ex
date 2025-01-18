@@ -27,7 +27,7 @@ const 设置属性 = 'setAttribute';
 const 获取属性 = 'getAttribute';
 const 清除属性 = 'removeAttribute';
 const 来源 = 'referrer';
-const 数据属性头 = 'data-'; 
+const 数据属性头 = 'data-';
 const 呢 = 'ing';
 const 运行中属性 = 数据属性头 + 'runn' + 呢;
 const 加载中属性 = 数据属性头 + 加载 + 呢;
@@ -189,12 +189,13 @@ function generateElementToHandleEkiTokyo(countyId) {
         const checked = getBit(checkin, x.id);
 
         return `<div style="flex: 1;">
-            <input type="checkbox" id="${x.id}" name="${x.prefecture} ${x.name}" onclick="handleClickTokyo(this, '${countyId}');" ${checked ? "checked" : ""}/>
+            <input type="checkbox" id="${x.id}" name="${x.prefecture} ${x.name}" onclick="处理点击东京热区(this, '${countyId}');" ${checked ? "checked" : ""}/>
             <label for="scales">${x.name}</label>
         </div>`;
     };
 }
-window.handleClickTokyo = (checkbox) => {
+// Tokyo is a hot area with many stations, so we need to handle it separately
+window.处理点击东京热区 = (checkbox) => {
     const id = Number(checkbox.id);
     const checkin = getCheckin();
     // Get mod 8
