@@ -23,6 +23,16 @@
 #area rect[level="3"]{fill:#f3c218;}
 #area rect[level="2"]{fill:#30cc70;}
 #area rect[level="1"]{fill:#3598db;}
+#area g[level="5"] polygon{fill:#e84c3d;}
+#area g[level="4"] polygon{fill:#d58337;}
+#area g[level="3"] polygon{fill:#f3c218;}
+#area g[level="2"] polygon{fill:#30cc70;}
+#area g[level="1"] polygon{fill:#3598db;}
+#area g[level="5"] rect{fill:#e84c3d;}
+#area g[level="4"] rect{fill:#d58337;}
+#area g[level="3"] rect{fill:#f3c218;}
+#area g[level="2"] rect{fill:#30cc70;}
+#area g[level="1"] rect{fill:#3598db;}
 </style>
 <g id="area">
 	<polygon id="富山" class="st1" stroke-width="4" stroke="#333" fill="#fff" stroke-linejoin="round" points="1051.6,276.5 1051.6,360.4 967.6,360.4 967.6,324.4 1000.9,324.4 	"></polygon>
