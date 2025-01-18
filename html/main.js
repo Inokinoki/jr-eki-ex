@@ -207,7 +207,7 @@ window.handleClick = (checkbox, eleId, countyId) => {
         } else if (jr_eki_data.hasOwnProperty(countyId + "府")) {
             // 2 fu
             $("#checkin").innerHTML = jr_eki_data[countyId + "府"].map(
-                generateElementToHandleEki(countyId, countyId)
+                generateElementToHandleEki(countyId, countyId + "府")
             ).join(" ");
         } else if (countyId.endsWith("道")) {
             // 1 dou
