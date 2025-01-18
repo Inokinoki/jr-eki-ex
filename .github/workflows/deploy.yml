@@ -22,8 +22,7 @@ jobs:
       run: npm install
     
     - name: Replace AdSense code
-      run: sed -i 's/<head>/<head><script async src="https:\/\/pagead2.googlesyndication.com\/pagead\/js\/adsbygoogle.js?client=ca-pub-2713518338457470"
-     crossorigin="anonymous"><\/script>/g' ./html/index.html
+      run: sed -i 's/<head>/<head><script async src="https:\/\/pagead2.googlesyndication.com\/pagead\/js\/adsbygoogle.js?client=ca-pub-2713518338457470" crossorigin="anonymous"><\/script>/g' ./html/index.html
 
     - name: Build project
       run: npm run build
