@@ -39,7 +39,7 @@ const replaceVersion = text => text.replace(/\{version\}/g,ver);
 const { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync } = require('fs');
 
 const replaceData = text => {
-    const data = require('../station-to-prefecture/data/jp.json');
+    const data = require('./jp.json');
     return text.replace("undefined", JSON.stringify(data));
 }
 
